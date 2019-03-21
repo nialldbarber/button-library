@@ -10,8 +10,8 @@ const buttonTypes = {
 
 class App extends Component {
 	state = {
-		client: ["Vodafone", "Mitchells & Butlers", "Charles Stanley", "Accenture", "Condé Nast", "Odgers Berndtson"],
-		currentClient: "Vodafone",
+		client: ["One", "Two", "Three", "Four", "Five", "Six"],
+		currentClient: "One",
 		buttonOutput: ""
 	};
 
