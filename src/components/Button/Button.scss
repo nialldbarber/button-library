@@ -1,0 +1,92 @@
+$transition: cubic-bezier(0.895, 0.03, 0.685, 0.22) 0s;
+$time: 0.15s;
+$lightGrey: #ebebeb;
+$green: #9fd6ae;
+$darkBlue: #065fd4;
+$blue: #2179d5;
+
+.button-container {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+	.button {
+		padding: 1rem 2rem;
+		background: $lightGrey;
+		font-size: 1.5rem;
+		font-weight: 500;
+		width: 100%;
+		margin: 3rem;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+		transition: $time $transition;
+		&.on {
+			background: #c594c5;
+		}
+	}
+}
+
+.switcher {
+	position: relative;
+	display: block;
+	width: 50px;
+	height: 25px;
+	.slider {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background: $lightGrey;
+		border-radius: 35px;
+		cursor: pointer;
+		transition: $time $transition;
+		&:before {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 0;
+			background-color: #e7342c;
+			width: 28px;
+			height: 28px;
+			border-radius: 50%;
+			transform: translateY(-50%);
+			transition: $time $transition;
+		}
+		&.green {
+			&:before {
+				background-color: $green;
+			}
+		}
+		&.blue {
+			&:before {
+				background-color: $blue;
+			}
+		}
+		&.darkBlue {
+			&:before {
+				background-color: $darkBlue;
+			}
+		}
+	}
+	input {
+		appearance: none;
+		&:checked {
+			& + .slider {
+				&:before {
+					transform: translateX(100%) translateY(-50%);
+				}
+			}
+		}
+		&:active {
+			& + .slider {
+				&:before {
+					width: 29px;
+					height: 29px;
+				}
+			}
+		}
+	}
+}
